@@ -6,8 +6,9 @@ import theDungeonOfKairu.gfx.Assets;
 
 public class Player extends Creature {
 
+	
 	public Player(float x, float y) {
-		super(x, y);
+		super(x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 		
 	}
 
@@ -19,7 +20,7 @@ public class Player extends Creature {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.p_one,(int) x,(int) y, null);
+		g.drawImage(Assets.p_one,(int) x,(int) y, width, height, null);
 		
 	}
 

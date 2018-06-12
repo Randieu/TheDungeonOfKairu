@@ -3,6 +3,7 @@ package theDungeonOfKairu.states;
 import java.awt.Graphics;
 
 import theDungeonOfKairu.entities.creatures.Player;
+import theDungeonOfKairu.tiles.Tile;
 
 public class GameState extends State {
 
@@ -20,7 +21,8 @@ public class GameState extends State {
 
 	@Override
 	public void render(Graphics g) {
-	player.render(g);	
+	player.render(g);
+	Tile.tiles[0].render(g, 0, 0);
 		
 	}
 

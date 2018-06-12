@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Assets {
 private static final int width = 64, height = 64;
 	
-	public static BufferedImage p_one, p_two, p_three, p_four, p_five, p_start;
+	public static BufferedImage p_one, p_darktile, p_walltile, p_four, p_five, p_start;
 
 	public static BufferedImage[] btn_start; 
 	
@@ -22,9 +22,9 @@ private static final int width = 64, height = 64;
 		
 		
 		p_one = sheet.crop(0, 0, width, height);
-		p_two = sheet.crop(width, 0, width, height);
-		p_three = sheet.crop(width * 2, 0, width, height);
-		p_four = sheet.crop(width * 3, 0, width, height);
+		p_darktile = sheet.crop(width * 3, 0, width, height);
+		p_walltile = sheet.crop(width * 2, 0, width, height);
+		p_four = sheet.crop(width * 3, height * 2, width, height);
 		p_five = sheet.crop(0, height, width, height);
 		p_start = sheet.crop(width * 3, height * 3, width, height);
 	}
