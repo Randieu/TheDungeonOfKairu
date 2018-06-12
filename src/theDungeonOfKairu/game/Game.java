@@ -5,6 +5,11 @@ import java.awt.image.BufferStrategy;
 
 import theDungeonOfKairu.display.Display;
 import theDungeonOfKairu.gfx.Assets;
+import theDungeonOfKairu.states.BaseState;
+import theDungeonOfKairu.states.BattleState;
+import theDungeonOfKairu.states.GameState;
+import theDungeonOfKairu.states.MenuState;
+import theDungeonOfKairu.states.State;
 
 public class Game implements Runnable {
 
@@ -18,6 +23,12 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	// States
+	private State gameState;
+	private State menuState;
+	private State baseState;
+	private State battleState;
+	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -27,12 +38,20 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		Assets.init();
+		
+		gameState = new GameState();
+		menuState = new MenuState();
+		baseState = new BaseState();
+		battleState = new BattleState();
+		State.setState(menuState);
 	}
 	
-	int x = 0;
+	
 	
 	private void tick() {
-		x += 1;
+		if(State.getState() != null)
+			State.getState().tick();
+			
 	}
 	
 	private void render() {
@@ -46,7 +65,9 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		
 		// Draw here!
-		g.drawImage(Assets.p_one, x, 10, null);
+		if(State.getState() != null)
+			State.getState().render(g);
+			
 		
 		// End Drawing!
 		bs.show();
