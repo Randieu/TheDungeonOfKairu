@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 
 import theDungeonOfKairu.display.Display;
 import theDungeonOfKairu.gfx.Assets;
+import theDungeonOfKairu.gfx.GameCamera;
 import theDungeonOfKairu.states.BaseState;
 import theDungeonOfKairu.states.BattleState;
 import theDungeonOfKairu.states.GameState;
@@ -14,7 +15,7 @@ import theDungeonOfKairu.states.State;
 public class Game implements Runnable {
 
 	private Display display;
-	public int width, height;
+	private int width, height;
 	public String title;
 	
 	private boolean running = false;
@@ -29,6 +30,11 @@ public class Game implements Runnable {
 	private State baseState;
 	private State battleState;
 	
+	// Input
+	
+	//Camera
+	private GameCamera gameCamera;
+	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -39,10 +45,12 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 		Assets.init();
 		
-		gameState = new GameState();
-		menuState = new MenuState();
-		baseState = new BaseState();
-		battleState = new BattleState();
+		gameCamera = new GameCamera(this, 0, 0);
+		
+		gameState = new GameState(this);
+		menuState = new MenuState(this);
+		baseState = new BaseState(this);
+		battleState = new BattleState(this);
 		State.setState(gameState);
 	}
 	
@@ -111,6 +119,19 @@ public class Game implements Runnable {
 		stop();
 		
 	}
+	
+	public GameCamera getGameCamera() {
+		return gameCamera;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
 	
 	public synchronized void start() {
 		if(running)

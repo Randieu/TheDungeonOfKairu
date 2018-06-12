@@ -2,12 +2,16 @@ package theDungeonOfKairu.entities;
 
 import java.awt.Graphics;
 
+import theDungeonOfKairu.game.Game;
+
 public abstract class Entity {
 
-	protected float x, y;
+	protected Game game;	
+	protected int x, y;
 	protected int width, height;
 	
-	public Entity(float x, float y, int width, int height) {
+	public Entity(Game game, int x, int y, int width, int height) {
+		this.game = game;
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -22,7 +26,7 @@ public abstract class Entity {
 		return x;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x = x;
 	}
 
@@ -30,7 +34,7 @@ public abstract class Entity {
 		return y;
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y = y;
 	}
 

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="Res/" kind="src" path="src"/>
+	<classpathentry kind="src" path="Res">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/R-Stu/eclipse-workspace/TheDungeonOfKairu/Res"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="src/Res"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

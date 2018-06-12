@@ -1,6 +1,7 @@
 package theDungeonOfKairu.entities.creatures;
 
 import theDungeonOfKairu.entities.Entity;
+import theDungeonOfKairu.game.Game;
 
 public abstract class Creature extends Entity {
 
@@ -10,8 +11,8 @@ public abstract class Creature extends Entity {
 	
 	protected int health;
 	
-	public Creature(float x, float y, int width, int height) {
-		super(x, y, width, height);
+	public Creature(Game game, int x, int y, int width, int height) {
+		super(game, x, y, width, height);
 		health = DEFAULT_HEALTH;
 	}
 
