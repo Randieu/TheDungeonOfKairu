@@ -2,16 +2,16 @@ package theDungeonOfKairu.entities;
 
 import java.awt.Graphics;
 
-import theDungeonOfKairu.game.Game;
+import theDungeonOfKairu.game.Handler;
 
 public abstract class Entity {
 
-	protected Game game;	
+	protected Handler handler;	
 	protected int x, y;
 	protected int width, height;
 	
-	public Entity(Game game, int x, int y, int width, int height) {
-		this.game = game;
+	public Entity(Handler handler, int x, int y, int width, int height) {
+		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;

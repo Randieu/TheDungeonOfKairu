@@ -6,6 +6,7 @@ import java.awt.image.BufferStrategy;
 import theDungeonOfKairu.display.Display;
 import theDungeonOfKairu.gfx.Assets;
 import theDungeonOfKairu.gfx.GameCamera;
+import theDungeonOfKairu.input.MouseManager;
 import theDungeonOfKairu.states.BaseState;
 import theDungeonOfKairu.states.BattleState;
 import theDungeonOfKairu.states.GameState;
@@ -25,33 +26,43 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	// States
-	private State gameState;
-	private State menuState;
-	private State baseState;
-	private State battleState;
+	public State gameState;
+	public State menuState;
+	public State baseState;
+	public State battleState;
 	
 	// Input
+	private MouseManager mouseManager;
 	
 	//Camera
 	private GameCamera gameCamera;
+	
+	// Handler
+	private Handler handler;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		mouseManager = new MouseManager();
 	}
 
 	private void init() {
 		display = new Display(title, width, height);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 		
-		gameCamera = new GameCamera(this, 0, 0);
+		handler = new Handler(this);
+		gameCamera = new GameCamera(handler, 0, 0);
 		
-		gameState = new GameState(this);
-		menuState = new MenuState(this);
-		baseState = new BaseState(this);
-		battleState = new BattleState(this);
-		State.setState(gameState);
+		gameState = new GameState(handler);
+		menuState = new MenuState(handler);
+		baseState = new BaseState(handler);
+		battleState = new BattleState(handler);
+		State.setState(menuState);
 	}
 	
 	
@@ -118,6 +129,10 @@ public class Game implements Runnable {
 		
 		stop();
 		
+	}
+	
+	public MouseManager getMouseManager() {
+		return mouseManager;
 	}
 	
 	public GameCamera getGameCamera() {

@@ -2,12 +2,12 @@ package theDungeonOfKairu.states;
 
 import java.awt.Graphics;
 
-import theDungeonOfKairu.game.Game;
+import theDungeonOfKairu.game.Handler;
 
 public class BattleState extends State{
 
-	public BattleState(Game game) {
-		super(game);
+	public BattleState(Handler handler) {
+		super(handler);
 	
 	}
 

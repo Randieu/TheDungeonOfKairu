@@ -2,19 +2,19 @@ package theDungeonOfKairu.floors;
 
 import java.awt.Graphics;
 
-import theDungeonOfKairu.game.Game;
+import theDungeonOfKairu.game.Handler;
 import theDungeonOfKairu.tiles.Tile;
 import theDungeonOfKairu.utils.Utils;
 
 public class Floor {
 
-	private Game game;
+	private Handler handler;
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles;
 	
-	public Floor(Game game, String path) {
-		this.game = game;
+	public Floor(Handler handler, String path) {
+		this.handler = handler;
 		loadFloor(path);
 	}
 	
@@ -23,16 +23,16 @@ public class Floor {
 	}
 	
 	public void render(Graphics g) {
-		int xStart = (int) Math.max(0, game.getGameCamera().getxOffset() / Tile.TILEWIDTH);
-		int xEnd = (int) Math.min(width, (game.getGameCamera().getxOffset() + game.getWidth()) / Tile.TILEWIDTH + 1);
-		int yStart = (int) Math.max(0, game.getGameCamera().getyOffset() / Tile.TILEHEIGHT);
-		int yEnd = (int) Math.min(height, (game.getGameCamera().getyOffset() + game.getHeight()) / Tile.TILEHEIGHT + 1);
+		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH);
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
+		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT);
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1);
 		
 		
 		for(int y = yStart;y < yEnd;y++) {
 			for(int x = xStart;x < xEnd;x++) {
-				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - game.getGameCamera().getxOffset()),
-						(int) (y * Tile.TILEHEIGHT - game.getGameCamera().getyOffset()));
+				getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
+						(int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
 			}
 		}
 		
@@ -61,7 +61,15 @@ public class Floor {
 				}
 			}
 		}
-		
+	
+	public int getWidth() {
+		return width;
 	}
+	
+	public int getHeight() {
+		return height;
+	}
+		
+}
 	
 
