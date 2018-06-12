@@ -4,7 +4,8 @@ public class Launcher {
 	
 	// This will launch any display created
 		public static void main(String[] args) {
-			new Game("Title!", 300, 300); 
+		Game game = new Game("The Dungeon of Kairu", 1024, 640);
+		game.start();
 		}	
 	
 }
