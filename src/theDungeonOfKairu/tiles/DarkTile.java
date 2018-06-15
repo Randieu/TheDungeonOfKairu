@@ -5,7 +5,7 @@ import theDungeonOfKairu.gfx.Assets;
 public class DarkTile extends Tile {
 
 	public DarkTile(int id) {
-		super(Assets.p_darktile, id);
+		super(Assets.p_darktile, Assets.p_darktile, id);
 		
 	}
 

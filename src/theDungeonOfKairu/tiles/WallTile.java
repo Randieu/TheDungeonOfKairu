@@ -1,11 +1,14 @@
 package theDungeonOfKairu.tiles;
 
+import java.awt.image.BufferedImage;
+
 import theDungeonOfKairu.gfx.Assets;
 
 public class WallTile extends Tile{
 
+	
 	public WallTile(int id) {
-		super(Assets.p_walltile, id);
+		super(Assets.p_walltile, Assets.p_darktile, id);
 		
 	}
 	
@@ -13,5 +16,6 @@ public class WallTile extends Tile{
 	public boolean isSolid() {
 		return true;
 	}
+	
 
 }

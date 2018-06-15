@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import theDungeonOfKairu.game.Handler;
 import theDungeonOfKairu.gfx.Assets;
+import theDungeonOfKairu.gfx.MusicPlayer;
 import theDungeonOfKairu.ui.ClickListener;
 import theDungeonOfKairu.ui.UIImagebutton;
 import theDungeonOfKairu.ui.UIManager;

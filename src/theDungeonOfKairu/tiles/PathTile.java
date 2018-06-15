@@ -5,7 +5,7 @@ import theDungeonOfKairu.gfx.Assets;
 public class PathTile extends Tile {
 
 	public PathTile(int id) {
-		super(Assets.p_five, id);
+		super(Assets.p_five, Assets.p_darktile, id);
 		
 	}
 

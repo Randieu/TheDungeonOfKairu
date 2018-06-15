@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 
 public class Tile {
 
+	
+	
 	// Static stuff here
 	
 	public static Tile[] tiles = new Tile[256];
@@ -19,10 +21,12 @@ public class Tile {
 	public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
 	
 	protected BufferedImage texture;
+	protected BufferedImage texture2;
 	protected final int id;
 	
-	public Tile(BufferedImage texture, int id) {
+	public Tile(BufferedImage texture, BufferedImage texture2, int id) {
 		this.texture = texture;
+		this.texture2 = texture2;
 		this.id = id;
 		
 		tiles[id] = this;
@@ -37,6 +41,10 @@ public class Tile {
 	}
 	
 	public boolean isSolid() {
+		return false;
+	}
+	
+	public boolean isExplored() {
 		return false;
 	}
 	

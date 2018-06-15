@@ -1,5 +1,8 @@
 package theDungeonOfKairu.gfx;
 
-public class MusicPlayer {
+
+public class MusicPlayer{
+
+	
 
 }
