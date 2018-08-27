@@ -14,11 +14,11 @@ private static final int width = 64, height = 64;
 	
 	
 	public static void init() {
-		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/Textures/TestSpriteOne.png"));
+		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/Textures/TestSpriteTwo.png"));
 		
 		btn_start = new BufferedImage[2];
-		btn_start[0] = sheet.crop(width * 2, height * 3, width, height);
-		btn_start[1] = sheet.crop(width * 3, height * 3, width, height);
+		btn_start[0] = sheet.crop(width * 2, height * 1, width * 2, height);
+		btn_start[1] = sheet.crop(width * 2, height * 1, width * 2, height);
 		
 		
 		p_one = sheet.crop(0, 0, width, height);

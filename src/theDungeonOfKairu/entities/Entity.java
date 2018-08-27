@@ -22,7 +22,7 @@ public abstract class Entity {
 	
 	public abstract void render(Graphics g);
 
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
@@ -30,7 +30,7 @@ public abstract class Entity {
 		this.x = x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
